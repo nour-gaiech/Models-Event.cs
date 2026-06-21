@@ -1,0 +1,15 @@
+@using EventEase.Models
+
+<div style="border:1px solid #ccc; padding:15px; margin:10px; border-radius:8px;">
+    <h3>@Event.Name</h3>
+
+    <p><b>Date:</b> @Event.Date</p>
+    <p><b>Location:</b> @Event.Location</p>
+
+    <a href="/details/@Event.Id">View Details</a>
+</div>
+
+@code {
+    [Parameter]
+    public Event Event { get; set; } = new Event();
+}
