@@ -1,0 +1,36 @@
+@page "/details/{id:int}"
+@using EventEase.Models
+
+<h1>Event Details 📌</h1>
+
+@if (selectedEvent != null)
+{
+    <div style="border:1px solid gray; padding:15px;">
+        <h3>@selectedEvent.Name</h3>
+        <p><b>Date:</b> @selectedEvent.Date</p>
+        <p><b>Location:</b> @selectedEvent.Location</p>
+    </div>
+}
+else
+{
+    <p>Event not found ❌</p>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    List<Event> events = new()
+    {
+        new Event { Id = 1, Name = "Tech Conference", Date = "2026-07-01", Location = "Tunis" },
+        new Event { Id = 2, Name = "Startup Meetup", Date = "2026-07-10", Location = "Sousse" },
+        new Event { Id = 3, Name = "AI Workshop", Date = "2026-07-20", Location = "Sfax" }
+    };
+
+    Event? selectedEvent;
+
+    protected override void OnInitialized()
+    {
+        selectedEvent = events.FirstOrDefault(e => e.Id == id);
+    }
+}
