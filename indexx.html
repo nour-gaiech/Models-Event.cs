@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Styles | Graphiste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <h1>Alex Styles</h1>
+
+        <ul>
+            <li>
+                <a href="#about" class="tooltip">
+                    À propos
+                    <span class="tooltiptext">En savoir plus sur Alex</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#portfolio" class="tooltip">
+                    Portfolio
+                    <span class="tooltiptext">Voir les projets</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact" class="tooltip">
+                    Contact
+                    <span class="tooltiptext">Prendre contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <h2>Designer Graphique Créatif</h2>
+    <p>Je crée des expériences visuelles modernes et mémorables.</p>
+    <button class="btn">Découvrir mon travail</button>
+</section>
+
+<section id="about">
+    <h2>À propos de moi</h2>
+
+    <p>
+        Je suis Alex Styles, graphiste spécialisé dans l'identité visuelle,
+        le branding et la conception numérique.
+    </p>
+</section>
+
+<section id="portfolio">
+    <h2>Portfolio</h2>
+
+    <div class="portfolio-grid">
+
+        <div class="project-card" onclick="openModal('Projet Branding')">
+            <img src="https://via.placeholder.com/400x250" alt="">
+            <h3>Projet Branding</h3>
+        </div>
+
+        <div class="project-card" onclick="openModal('Campagne Marketing')">
+            <img src="https://via.placeholder.com/400x250" alt="">
+            <h3>Campagne Marketing</h3>
+        </div>
+
+        <div class="project-card" onclick="openModal('Design Web')">
+            <img src="https://via.placeholder.com/400x250" alt="">
+            <h3>Design Web</h3>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <form>
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Votre message"></textarea>
+
+        <button type="submit" class="btn">
+            Envoyer
+        </button>
+    </form>
+</section>
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="modal-title"></h2>
+
+        <p>
+            Description détaillée du projet sélectionné.
+        </p>
+    </div>
+
+</div>
+
+<script>
+
+function openModal(title){
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+window.onclick = function(event){
+    let modal = document.getElementById("modal");
+
+    if(event.target === modal){
+        modal.style.display = "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
